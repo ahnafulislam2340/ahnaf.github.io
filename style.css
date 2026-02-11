@@ -1,0 +1,29 @@
+/* If the background is dark blue, the CSS is working! */
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-container {
+    text-align: center;
+    border: 1px solid #334155;
+    padding: 2rem;
+    border-radius: 20px;
+    background: #1e293b;
+}
+
+.status-badge {
+    margin-top: 20px;
+    background: #22c55e;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: bold;
+}

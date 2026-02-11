@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+            --accent: #6366f1; /* Modern Indigo */
+            --text-main: #ffffff;
+            --text-dim: #a1a1aa;
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Background Glow */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #050505 100%);
+            z-index: -1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-weight: 600; font-size: 1.2rem; letter-spacing: -1px; }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        header {
+            text-align: center;
+            padding: 10rem 10% 5rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 600;
+            margin: 0;
+            background: linear-gradient(to bottom, #fff 30%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1rem auto 2rem;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: var(--bg);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+
+        section { padding: 5rem 10%; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .card h3 { margin-top: 0; color: var(--accent); }
+
+        footer {
+            text-align: center;
+            padding: 5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PORTFOLIO.</div>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="mailto:hello@example.com">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Building digital<br>experiences.</h1>
+        <p class="hero-sub">I'm a developer focused on clean code and elegant user interfaces.</p>
+        <a href="#work" class="btn-primary">View Projects</a>
+    </header>
+
+    <section id="work">
+        <div class="grid">
+            <div class="card">
+                <h3>Project One</h3>
+                <p>A high-performance web application built with modern standards.</p>
+            </div>
+            <div class="card">
+                <h3>Project Two</h3>
+                <p>Custom e-commerce solution with focus on user conversion.</p>
+            </div>
+            <div class="card">
+                <h3>Project Three</h3>
+                <p>Mobile-first dashboard design for data visualization.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Your Name. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
