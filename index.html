@@ -10,7 +10,7 @@
             --bg: #050505;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.1);
-            --accent: #3b82f6; /* Modern Blue */
+            --accent: #3b82f6;
             --text-main: #ffffff;
             --text-dim: #a1a1aa;
         }
@@ -29,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Subtle Background Glow */
         body::before {
             content: "";
             position: fixed;
@@ -85,7 +84,6 @@
             display: inline;
         }
 
-        /* typed text container */
         #typed {
             white-space: nowrap;
         }
@@ -142,28 +140,44 @@
             color: var(--accent);
         }
 
+        /* ===== UPDATED FOOTER ===== */
+
         footer {
             text-align: center;
-            padding: 10rem 1 0rem; /* reduced top padding, kept bottom */
-            border-top: 1px solid var(--border);
-            margin-top: 5em; /* add spacing above border relative to text */
+            padding: 5rem 10% 3rem;
+            margin-top: 8rem;
             color: var(--text-dim);
-            font-size: 0.8rem;
+            font-size: 0.7rem; /* smaller text */
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 2.5rem;
+            left: 5%;     /* extend line farther left */
+            width: 90%;   /* extend line length */
+            height: 1.5px;
+            background: var(--border);
         }
 
-        /* Responsive styles for phone */
+
+        /* =========================== */
+
         @media (max-width: 600px) {
             nav {
                 padding: 1rem 5%;
                 flex-direction: column;
                 align-items: flex-start;
             }
+
             .nav-links {
                 margin-top: 0.5rem;
                 width: 100%;
                 display: flex;
                 justify-content: space-around;
             }
+
             .nav-links a {
                 margin-left: 0;
                 font-size: 1rem;
@@ -171,18 +185,22 @@
                 text-align: center;
                 padding: 0.5rem 0;
             }
+
             header {
                 padding: 6rem 5% 3rem;
             }
+
             h1 {
                 font-size: clamp(2rem, 12vw, 3rem);
             }
+
             .hero-sub {
                 font-size: 1rem;
                 max-width: 100%;
                 margin: 1rem 0 1.5rem;
                 padding: 0 0.5rem;
             }
+
             .btn-primary {
                 padding: 0.7rem 1.5rem;
                 font-size: 1rem;
@@ -190,19 +208,27 @@
                 text-align: center;
                 box-shadow: none;
             }
+
             section {
                 padding: 8rem 5%;
             }
+
             .grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+
             .card {
                 padding: 1.5rem;
             }
+
             footer {
-                padding: 5rem 5% 2rem;
-                font-size: 0.75rem;
+                padding: 4rem 5% 2rem;
+            }
+
+            footer::before {
+                left: 5%;
+                width: 90%;
             }
         }
     </style>
@@ -251,7 +277,6 @@
   let index = 0;
   let forward = true;
 
-  // Create a blinking cursor element
   const cursor = document.createElement('span');
   cursor.textContent = '|';
   cursor.style.color = 'var(--accent)';
@@ -277,19 +302,18 @@
       if (forward) {
         typedElem.textContent = text.slice(0, index + 1);
         index++;
-        await wait(140); // typing speed
+        await wait(140);
         if (index === text.length) {
           forward = false;
-          // Hold the text visible with normal blinking cursor for ~3 seconds 
-          await blinkCursor(6, 500); 
+          await blinkCursor(6, 500);
         }
       } else {
         typedElem.textContent = text.slice(0, index - 1);
         index--;
-        await wait(140); // deleting speed same as typing
+        await wait(140);
         if (index === 0) {
           forward = true;
-          await blinkCursor(2, 500); // short pause blinking before typing again
+          await blinkCursor(2, 500);
         }
       }
     }
