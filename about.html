@@ -183,7 +183,54 @@
             background: rgba(59, 130, 246, 0.05);
         }
 
-        footer {
+        /* ===== ANIMATIONS ===== */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h2 {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .about-content p {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .skill-tag {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .skill-tag:nth-child(1) { animation-delay: 0.1s; }
+        .skill-tag:nth-child(2) { animation-delay: 0.2s; }
+        .skill-tag:nth-child(3) { animation-delay: 0.3s; }
+        .skill-tag:nth-child(4) { animation-delay: 0.4s; }
+        .skill-tag:nth-child(5) { animation-delay: 0.5s; }
+        .skill-tag:nth-child(6) { animation-delay: 0.6s; }
+        .skill-tag:nth-child(7) { animation-delay: 0.7s; }
+        .skill-tag:nth-child(8) { animation-delay: 0.8s; }
+
+        /* ======================= */
             text-align: center;
             padding: 5rem 10% 3rem;
             margin-top: 8rem;
